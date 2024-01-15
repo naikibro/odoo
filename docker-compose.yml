@@ -1,0 +1,18 @@
+version: '3.1'
+services:
+  web:
+    image: odoo:16.0
+    depends_on:
+      - mydb
+    ports:
+      - "8069:8069"
+    env_file:
+      - .env
+  mydb:
+    image: postgres:15
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=$DB_PASSWORD
+      - POSTGRES_USER=$DB_USER
+    env_file:
+      - .env
