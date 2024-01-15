@@ -6,8 +6,10 @@ services:
       - mydb
     ports:
       - "8069:8069"
-    env_file:
-      - .env
+    environment:
+      - HOST=$DB_HOST
+      - USER=$DB_USER
+      - PASSWORD=$DB_PASSWORD
   mydb:
     image: postgres:15
     environment:
