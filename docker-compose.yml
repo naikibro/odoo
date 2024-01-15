@@ -10,6 +10,7 @@ services:
       - HOST=$DB_HOST
       - USER=$DB_USER
       - PASSWORD=$DB_PASSWORD
+    #TODO : should add container persistence
   mydb:
     image: postgres:15
     environment:
@@ -18,3 +19,5 @@ services:
       - POSTGRES_USER=$DB_USER
     env_file:
       - .env
+
+#TODO : should add volumes for data persistence
